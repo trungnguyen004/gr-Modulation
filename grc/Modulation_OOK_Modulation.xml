@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<block>
+  <name>OOK_Modulation</name>
+  <key>Modulation_OOK_Modulation</key>
+  <category>[Modulation]</category>
+  <import>import Modulation</import>
+  <make>Modulation.OOK_Modulation($max, $min, $interpolation)</make>
+  <!-- Make one 'param' node for every Parameter you want settable from the GUI.
+       Sub-nodes:
+       * name
+       * key (makes the value accessible as $keyname, e.g. in the make node)
+       * type -->
+  <param> <!-- MODIFY THIS TO ADD PARAMETERS -->
+    <name>Max</name>
+    <key>max</key>
+    <type>float</type>
+  </param>
+
+<param>	<!-- MODIFY THIS TO ADD PARAMETERS -->
+    <name>Min</name>
+    <key>min</key>
+    <type>float</type>
+  </param>
+
+<param>	<!-- MODIFY THIS TO ADD PARAMETERS -->
+    <name>Interpolation</name>
+    <key>interpolation</key>
+    <type>float</type>
+  </param>
+
+  <!-- Make one 'sink' node per input. Sub-nodes:
+       * name (an identifier for the GUI)
+       * type
+       * vlen
+       * optional (set to 1 for optional inputs) -->
+  <sink>
+    <name>in</name>
+    <type>byte</type>
+  </sink>
+
+  <!-- Make one 'source' node per output. Sub-nodes:
+       * name (an identifier for the GUI)
+       * type
+       * vlen
+       * optional (set to 1 for optional inputs) -->
+  <source>
+    <name>out</name>
+    <type>float</type>
+  </source>
+</block>
