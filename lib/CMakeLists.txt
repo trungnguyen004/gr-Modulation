@@ -28,6 +28,7 @@ link_directories(${Boost_LIBRARY_DIRS})
 
 list(APPEND Modulation_sources
     OOK_Modulation_impl.cc
+    OOK_Demodulation_impl.cc
 )
 
 set(Modulation_sources "${Modulation_sources}" PARENT_SCOPE)

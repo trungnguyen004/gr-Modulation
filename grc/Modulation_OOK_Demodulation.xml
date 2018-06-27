@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<block>
+  <name>OOK_Demodulation</name>
+  <key>Modulation_OOK_Demodulation</key>
+  <category>[Modulation]</category>
+  <import>import Modulation</import>
+  <make>Modulation.OOK_Demodulation($thresthold, $decimation)</make>
+  <!-- Make one 'param' node for every Parameter you want settable from the GUI.
+       Sub-nodes:
+       * name
+       * key (makes the value accessible as $keyname, e.g. in the make node)
+       * type -->
+  <param> <!-- MODIFY THIS TO ADD PARAMETERS -->
+    <name>Thresthold</name>
+    <key>thresthold</key>
+    <type>float</type>
+  </param>
+
+	<param> <!-- MODIFY THIS TO ADD PARAMETERS -->
+    <name>Decimation</name>
+    <key>decimation</key>
+    <type>float</type>
+  </param>
+
+  <!-- Make one 'sink' node per input. Sub-nodes:
+       * name (an identifier for the GUI)
+       * type
+       * vlen
+       * optional (set to 1 for optional inputs) -->
+  <sink>
+    <name>in</name>
+    <type>float</type>
+  </sink>
+
+  <!-- Make one 'source' node per output. Sub-nodes:
+       * name (an identifier for the GUI)
+       * type
+       * vlen
+       * optional (set to 1 for optional inputs) -->
+  <source>
+    <name>out</name>
+    <type>byte</type>
+  </source>
+</block>
