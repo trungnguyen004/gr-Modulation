@@ -62,7 +62,7 @@ namespace gr {
       const float *in = (const float *) input_items[0];
       char *out = (char *) output_items[0];
 
-      for(int i =0; i < noutput_items; i++) {
+      for(int i =0; i < noutput_items; i++) { //use while loop with 2 variables i & j to use decimation
 	 if (in[i] < thresthold()) 
 		{out[i] = 0;}
 	 if (in[i] >= thresthold())
