@@ -41,7 +41,7 @@ namespace gr {
     OOK_Demodulation_impl::OOK_Demodulation_impl(float thresthold, float decimation)
       : gr::sync_decimator("OOK_Demodulation",
               gr::io_signature::make(1, 1, sizeof(float)),
-              gr::io_signature::make(1, 1, sizeof(char)), decimation) // Decimation need to be set as Interpolation in order to get the same signal.
+              gr::io_signature::make(1, 1, sizeof(char)), decimation) // Decimation need to be set the same as interpolation
     {
 	d_decimation(decimation);
 	d_thresthold(thresthold);
