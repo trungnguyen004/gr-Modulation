@@ -41,7 +41,7 @@ namespace gr {
     OOK_Demodulation_impl::OOK_Demodulation_impl(float thresthold, float decimation)
       : gr::sync_decimator("OOK_Demodulation",
               gr::io_signature::make(1, 1, sizeof(float)),
-              gr::io_signature::make(1, 1, sizeof(char)), decimation) // Decimation need to be set the same as interpolation
+              gr::io_signature::make(1, 1, sizeof(char)),decimation) // Decimation need to be set the same as interpolation
     {
 	d_decimation(decimation);
 	d_thresthold(thresthold);
@@ -62,12 +62,22 @@ namespace gr {
       const float *in = (const float *) input_items[0];
       char *out = (char *) output_items[0];
 
-      for(int i =0; i < noutput_items; i++) { //use while loop with 2 variables i & j to use decimation
-	 if (in[i] < thresthold()) 
-		{out[i] = 0;}
-	 if (in[i] >= thresthold())
-		{out[i] = 1;}
-	}
+	
+
+	int i=0;
+	int j=0;
+
+	while(i< noutput_items) {
+		if ( in[j] < thresthold() )
+			{ out[i++] = 0;
+			  j+=decimation();
+			  }
+		if ( in[j] >= thresthold() )
+			{ out[i++] = 1;
+			  j+=decimation();
+			  }
+				}
+
 
       // Tell runtime system how many output items we produced.
       return noutput_items;
