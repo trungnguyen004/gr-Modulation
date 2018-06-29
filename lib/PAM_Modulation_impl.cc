@@ -32,7 +32,7 @@ namespace gr {
     PAM_Modulation::make(float val00, float val01, float val10, float val11, float decimation)
     {
       return gnuradio::get_initial_sptr
-        (new PAM_Modulation_impl(val00,val01,val10,val11));
+        (new PAM_Modulation_impl(val00,val01,val10,val11,decimation));
     }
 
     /*
@@ -41,7 +41,7 @@ namespace gr {
     PAM_Modulation_impl::PAM_Modulation_impl(float val00, float val01, float val10, float val11, float decimation)
       : gr::sync_decimator("PAM_Modulation",
               gr::io_signature::make(1, 1, sizeof(char)),
-              gr::io_signature::make(1, 1>, sizeof(float)), decimation)
+              gr::io_signature::make(1, 1, sizeof(float)), decimation)
     {
 d_val00(val00);	
 	d_val01(val01);
@@ -62,8 +62,11 @@ d_val00(val00);
         gr_vector_const_void_star &input_items,
         gr_vector_void_star &output_items)
     {
-      const float *in = (const float *) input_items[0];
-      char *out = (char *) output_items[0];
+      const char *in = (const char *) input_items[0];
+      float *out = (float *) output_items[0];
+
+	int i=0;
+	int j=0;
 
 	 while(i < noutput_items) { 	//Change the function if decimation > 3
 	if(in[j] < 0.5 and in[j+1] < 0.5)

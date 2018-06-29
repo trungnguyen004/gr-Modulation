@@ -46,7 +46,17 @@ namespace gr {
        * class. Modulation::PAM_Modulation::make is the public interface for
        * creating new instances.
        */
-      static sptr make();
+      static sptr make(float val00, float val01, float val10, float val11, float decimation);
+	virtual void d_val00(float val00) = 0;
+	virtual float val00() =0;
+	virtual void d_val01(float val01) = 0;
+	virtual float val01() =0;
+	virtual void d_val10(float val10) = 0;
+	virtual float val10() =0;
+	virtual void d_val11(float val11) = 0;
+	virtual float val11() =0;
+	virtual void d_decimation(float decimation) = 0;
+	virtual float decimation() =0;
     };
 
   } // namespace Modulation

@@ -4,17 +4,42 @@
   <key>Modulation_PAM_Modulation</key>
   <category>[Modulation]</category>
   <import>import Modulation</import>
-  <make>Modulation.PAM_Modulation()</make>
+  <make>Modulation.PAM_Modulation($val00, $val01, $val10, $val11, $decimation)</make>
   <!-- Make one 'param' node for every Parameter you want settable from the GUI.
        Sub-nodes:
        * name
        * key (makes the value accessible as $keyname, e.g. in the make node)
        * type -->
   <param>
-    <name>...</name>
-    <key>...</key>
-    <type>...</type>
+    <name>Value for 00</name>
+    <key>val00</key>
+    <type>float</type>
   </param>
+
+	<param>
+    <name>Value for 01</name>
+    <key>val01</key>
+    <type>float</type>
+  </param>
+
+	<param>
+    <name>Value for 10</name>
+    <key>val10</key>
+    <type>float</type>
+  </param>
+
+	<param>
+    <name>Value for 11</name>
+    <key>val11</key>
+    <type>float</type>
+  </param>
+
+	<param>
+    <name>Decimation</name>
+    <key>decimation</key>
+    <type>float</type>
+  </param>
+
 
   <!-- Make one 'sink' node per input. Sub-nodes:
        * name (an identifier for the GUI)
@@ -23,7 +48,7 @@
        * optional (set to 1 for optional inputs) -->
   <sink>
     <name>in</name>
-    <type><!-- e.g. int, float, complex, byte, short, xxx_vector, ...--></type>
+    <type>byte</type>
   </sink>
 
   <!-- Make one 'source' node per output. Sub-nodes:
@@ -33,6 +58,6 @@
        * optional (set to 1 for optional inputs) -->
   <source>
     <name>out</name>
-    <type><!-- e.g. int, float, complex, byte, short, xxx_vector, ...--></type>
+    <type>float</type>
   </source>
 </block>

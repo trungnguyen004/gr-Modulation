@@ -29,11 +29,26 @@ namespace gr {
     class PAM_Modulation_impl : public PAM_Modulation
     {
      private:
-      // Nothing to declare in this block.
+      float my_val00;
+	float my_val01;
+	float my_val10;
+	float my_val11;
+	float my_decimation;
 
      public:
-      PAM_Modulation_impl();
+      PAM_Modulation_impl(float val00, float val01, float val10, float val11, float decimation);
       ~PAM_Modulation_impl();
+
+	void d_val00(float val00) {my_val00 = val00;}
+	float val00() {return my_val00;}
+	void d_val01(float val01) {my_val01 = val01;}
+	float val01() {return my_val01;}
+	void d_val10(float val10) {my_val10 = val10;}
+	float val10() {return my_val10;}
+	void d_val11(float val11) {my_val11 = val11;}
+	float val11() {return my_val11;}
+	void d_decimation(float decimation) {my_decimation = decimation;}
+	float decimation() {return my_decimation;}
 
       // Where all the action really happens
       int work(int noutput_items,
