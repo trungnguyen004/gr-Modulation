@@ -24,5 +24,6 @@
 install(FILES
     api.h
     OOK_Modulation.h
-    OOK_Demodulation.h DESTINATION include/Modulation
+    OOK_Demodulation.h
+    PAM_Modulation.h DESTINATION include/Modulation
 )

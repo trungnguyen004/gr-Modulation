@@ -10,6 +10,7 @@
 %{
 #include "Modulation/OOK_Modulation.h"
 #include "Modulation/OOK_Demodulation.h"
+#include "Modulation/PAM_Modulation.h"
 %}
 
 
@@ -17,3 +18,5 @@
 GR_SWIG_BLOCK_MAGIC2(Modulation, OOK_Modulation);
 %include "Modulation/OOK_Demodulation.h"
 GR_SWIG_BLOCK_MAGIC2(Modulation, OOK_Demodulation);
+%include "Modulation/PAM_Modulation.h"
+GR_SWIG_BLOCK_MAGIC2(Modulation, PAM_Modulation);

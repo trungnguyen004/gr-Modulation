@@ -20,5 +20,6 @@
 
 install(FILES
     Modulation_OOK_Modulation.xml
-    Modulation_OOK_Demodulation.xml DESTINATION share/gnuradio/grc/blocks
+    Modulation_OOK_Demodulation.xml
+    Modulation_PAM_Modulation.xml DESTINATION share/gnuradio/grc/blocks
 )
