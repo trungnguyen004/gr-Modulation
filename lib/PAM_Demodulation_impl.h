@@ -18,26 +18,26 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef INCLUDED_MODULATION_PAM_MODULATION_IMPL_H
-#define INCLUDED_MODULATION_PAM_MODULATION_IMPL_H
+#ifndef INCLUDED_MODULATION_PAM_DEMODULATION_IMPL_H
+#define INCLUDED_MODULATION_PAM_DEMODULATION_IMPL_H
 
-#include <Modulation/PAM_Modulation.h>
+#include <Modulation/PAM_Demodulation.h>
 
 namespace gr {
   namespace Modulation {
 
-    class PAM_Modulation_impl : public PAM_Modulation
+    class PAM_Demodulation_impl : public PAM_Demodulation
     {
      private:
         float my_val00;
 	float my_val01;
 	float my_val10;
 	float my_val11;
-	float my_decimation;
+	float my_interpolation;
 
      public:
-      PAM_Modulation_impl(float val00, float val01, float val10, float val11, float decimation);
-      ~PAM_Modulation_impl();
+      PAM_Demodulation_impl(float val00, float val01, float val10, float val11, float interpolation);
+      ~PAM_Demodulation_impl();
 
 	void d_val00(float val00) {my_val00 = val00;}
 	float val00() {return my_val00;}
@@ -47,8 +47,8 @@ namespace gr {
 	float val10() {return my_val10;}
 	void d_val11(float val11) {my_val11 = val11;}
 	float val11() {return my_val11;}
-	void d_decimation(float decimation) {my_decimation = decimation;}
-	float decimation() {return my_decimation;}
+	void d_interpolation(float interpolation) {my_interpolation = interpolation;}
+	float interpolation() {return my_interpolation;}
 
       // Where all the action really happens
       int work(int noutput_items,
@@ -59,5 +59,5 @@ namespace gr {
   } // namespace Modulation
 } // namespace gr
 
-#endif /* INCLUDED_MODULATION_PAM_MODULATION_IMPL_H */
+#endif /* INCLUDED_MODULATION_PAM_DEMODULATION_IMPL_H */
 

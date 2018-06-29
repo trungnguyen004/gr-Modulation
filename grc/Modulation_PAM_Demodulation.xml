@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<block>
+  <name>PAM_Demodulation</name>
+  <key>Modulation_PAM_Demodulation</key>
+  <category>[Modulation]</category>
+  <import>import Modulation</import>
+  <make>Modulation.PAM_Demodulation($val00, $val01, $val10, $val11, $interpolation)</make>
+  <!-- Make one 'param' node for every Parameter you want settable from the GUI.
+       Sub-nodes:
+       * name
+       * key (makes the value accessible as $keyname, e.g. in the make node)
+       * type -->
+ <param>
+    <name>Value for 00</name>
+    <key>val00</key>
+    <type>float</type>
+  </param>
+
+	<param>
+    <name>Value for 01</name>
+    <key>val01</key>
+    <type>float</type>
+  </param>
+
+	<param>
+    <name>Value for 10</name>
+    <key>val10</key>
+    <type>float</type>
+  </param>
+
+	<param>
+    <name>Value for 11</name>
+    <key>val11</key>
+    <type>float</type>
+  </param>
+
+	<param>
+    <name>Interpolation</name>
+    <key>interpolation</key>
+    <type>float</type>
+  </param>
+
+  <!-- Make one 'sink' node per input. Sub-nodes:
+       * name (an identifier for the GUI)
+       * type
+       * vlen
+       * optional (set to 1 for optional inputs) -->
+  <sink>
+    <name>in</name>
+    <type>float</type>
+  </sink>
+
+  <!-- Make one 'source' node per output. Sub-nodes:
+       * name (an identifier for the GUI)
+       * type
+       * vlen
+       * optional (set to 1 for optional inputs) -->
+  <source>
+    <name>out</name>
+    <type>byte</type>
+  </source>
+</block>
