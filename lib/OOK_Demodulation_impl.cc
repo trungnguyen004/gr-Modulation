@@ -61,20 +61,27 @@ namespace gr {
     {
       const float *in = (const float *) input_items[0];
       char *out = (char *) output_items[0];
-
 	
 
 	int i=0;
 	int j=0;
+	int avg=0; //average
+	int sum=0;
+	
 
 	while(i< noutput_items) {
-		if ( in[j] < thresthold() )
+		for (int k=0; k<decimation(); k++){
+			sum+=in[j+k];}
+		avg = sum/decimation();	
+		if (avg < thresthold())
 			{ out[i++] = 0;
 			  j+=decimation();
+			  sum = 0; //reset sum
 			  }
-		if ( in[j] >= thresthold() )
+		if (avg >= thresthold() )
 			{ out[i++] = 1;
 			  j+=decimation();
+			  sum = 0; //reset sum
 			  }
 				}
 
